@@ -12,8 +12,10 @@ rupee = Currency.new(100.00, "rupee")
 
 
 
-puts usd == gil
+puts usd == gil #should say true
 new_currency = usd + gil
-puts "#{new_currency.amount}#{new_currency.type}"
+puts "#{new_currency.amount} #{new_currency.type}"  # should say 200
 new_currency = usd * 0.5
-puts "#{new_currency.type}#{new_currency.amount}"
+puts "#{new_currency.amount} #{new_currency.type}" # should say 50 USD
+
+puts usd + munny #should raise CodeError

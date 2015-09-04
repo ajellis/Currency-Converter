@@ -1,7 +1,7 @@
-/reuire ./
+require './code_error'
 class Currency
 
-attr_reader :amount, :type
+  attr_reader :amount, :type
 
   def initialize(amount, type)
     @amount = amount
@@ -29,7 +29,7 @@ attr_reader :amount, :type
     if @type == currency.type
       Currency.new(@amount + currency.amount, @type)
     else
-      raise DifferentCodeError, 'Different Currency Code'
+      raise CodeError, 'Different Currency Code'
     end
   end
 
@@ -37,7 +37,7 @@ attr_reader :amount, :type
     if @type == currency.type
       Currency.new(@amount - currency.amount, @type)
     else
-      raise TypeError, 'Different Currency Code'
+      raise CodeError, 'Different Currency Code'
     end
   end
 
