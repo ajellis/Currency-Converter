@@ -1,5 +1,4 @@
-
-
+/reuire ./
 class Currency
 
 attr_reader :amount, :type
@@ -17,11 +16,34 @@ attr_reader :amount, :type
     @type
   end
 
-  def ==(equal)
-    if @amount == equal.amount && @type == equal.type
-      true
-    else
-      false
+  def ==(currency)
+    @type == currency.type && @amount == currency.amount
+    # if @type == currency.type && @amount == currency.amount
+    #   true
+    # else
+    #   puts "Error: DifferentCurrencyCode"
+    # end
   end
-end
+
+  def +(currency)
+    if @type == currency.type
+      Currency.new(@amount + currency.amount, @type)
+    else
+      raise DifferentCodeError, 'Different Currency Code'
+    end
+  end
+
+  def -(currency)
+    if @type == currency.type
+      Currency.new(@amount - currency.amount, @type)
+    else
+      raise TypeError, 'Different Currency Code'
+    end
+  end
+
+  def *(ratio)
+      Currency.new(@amount * ratio, @type)
+  end
+
+
 end
