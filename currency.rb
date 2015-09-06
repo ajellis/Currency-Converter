@@ -3,9 +3,10 @@ class Currency
 
   attr_reader :amount, :type
 
-  def initialize(amount, type)
+  def initialize(type, amount)
     @amount = amount
     @type = type
+    @symbols = {"$" => "USD", "€" => "EUR", "¥" => "JPY", "£" => "GBP"}
   end
 
   def amount
