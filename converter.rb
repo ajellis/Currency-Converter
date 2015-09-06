@@ -2,21 +2,14 @@ require './currency'
 
 
 class Converter
-  attr_reader :amount, :type
 
-def initialize
-  @rates = {"USD" => 1.0, "EUR" => 0.89}
-end
+  def initialize
+    @rates = {"USD" => 1.0, "EUR" => 0.89, "GBP" => 0.65, "JPY" => 119.08, "CAD" => 1.33, "INR" => 66.69}
+  end
 
-def convert(amount, type, convert_to)
-  amount * @rates[convert_to]
-end
-
-
-# @types["USD"]
+  def convert(amount, type, convert_to)
+    (amount / @rates[type]) * @rates[convert_to]
+  end
 
 
 end
-
-
-# , "JPY": 119.100, "GBP": 0.69854, "AUD": 1.44563
