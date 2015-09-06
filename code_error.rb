@@ -1,2 +1,2 @@
-class CodeError < Exception
+class CodeError < StandardError
 end
