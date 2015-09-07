@@ -45,11 +45,11 @@ class CurrencyConverter
 
   def convert
     puts "What type of currency are we using?"
-    type = gets.chomp
+    type = gets.chomp.upcase
     puts "How much do you want to convert?"
     amount = gets.chomp.to_f
     puts "What currency do you want to convert it to?"
-    convert_to = gets.chomp
+    convert_to = gets.chomp.upcase
     converter = Converter.new
     converted = converter.convert(amount, type, convert_to)
     puts "You have #{converted} #{convert_to}."
