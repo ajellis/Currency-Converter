@@ -26,11 +26,12 @@ class CurrencyConverter
     operator = math[1]
     second_amount = math[2]
     first_amount = Currency.new(first_amount)
-    second_amount = Currency.new(second_amount)
     if operator == "+"
+      second_amount = Currency.new(second_amount)
       new_currency = first_amount + second_amount
       puts "#{new_currency.amount} #{new_currency.type}"
     elsif operator == "-"
+      second_amount = Currency.new(second_amount)
       new_currency = first_amount - second_amount
       puts "#{new_currency.amount} #{new_currency.type}"
     elsif operator == "*"

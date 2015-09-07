@@ -40,7 +40,11 @@ class Currency
   end
 
   def *(ratio)
-      Currency.new(@amount * ratio, @type)
+      Currency.new(@amount * ratio.to_f, @type)
+  end
+
+  def /(ratio)
+    Currency.new(@amount / ratio.to_f, @type)
   end
 
 
