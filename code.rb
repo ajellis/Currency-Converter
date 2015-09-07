@@ -24,45 +24,22 @@ def modify
   puts "Gimme some math! (ex. $123.45 + $987.65)"
   math = gets.chomp
 
-  math.split
+  math.split(" ")
   first_amount = math[0]
   operator = math[1]
   second_amount = math[2]
-  Currency.new(first_amount[0], first_amount[1..-1])
+  first_amount = Currency.new(first_amount)
+  second_amount = Currency.new(second_amount)
+  if operator == "+"
+    puts first_amount + second_amount
+  elsif operator == "-"
+    puts first_amount - second_amount
+  elsif operator == "*"
+    puts first_amount * second_amount
+  elsif operator == "/"
+    puts first_amount / second_amount
+  end
 end
-
-  type = 0
-  until @rates.keys.include? type
-    puts "What currency are we using?"
-    type = gets.chomp
-  end
-
-  amount = 0
-  until amount != 0
-    puts "How much do you currently have?"
-    amount = gets.chomp.to_i
-  end
-
-  modify = 0
-  until modify == "+" || "-" || "*" || "/"
-    puts "Are we adding currency (+), subtracting currency (-), multiplying (*), or dividing (/)?"
-    modify = gets.chomp
-  end
-
-
-  amount2 = 0
-  until amount2 != 0
-    puts "How much are you adding to it?"
-    amount2 = gets.chomp.to_i
-
-    puts "You now have "
-  end
-
-
-end
-
-
-
 
 def conversion
 

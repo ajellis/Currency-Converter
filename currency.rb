@@ -4,18 +4,19 @@ class Currency
   attr_reader :amount, :type
 
   def initialize(type = nil, amount)
-    @amount = amount
 
     if type == nil
       find_type(amount)
     else
       @type = type
+      @amount = amount
     end
   end
 
   def find_type(amount)
     symbols = {"$" => "USD", "€" => "EUR", "¥" => "JPY", "£" => "GBP"}
     @type =symbols[amount[0]]
+    @amount = amount[1..-1]
   end
 
   def amount
